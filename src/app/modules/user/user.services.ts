@@ -9,6 +9,7 @@ const my_profile = async (id: string): Promise<Partial<IUser> | null> => {
     name: 1,
     email: 1,
     address: 1,
+    imageUrl: 1,
   })
 
   if (!isExist) {

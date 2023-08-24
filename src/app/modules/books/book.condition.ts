@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { book_search_condition_keys } from './book.constant'
 import { IBookFilter } from './book.interface'
 

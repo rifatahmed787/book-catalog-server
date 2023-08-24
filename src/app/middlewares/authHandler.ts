@@ -3,9 +3,10 @@
 import { Request, Response, NextFunction } from 'express'
 import ApiError from '../errors/ApiError'
 import httpStatus from 'http-status'
+
+import { Secret } from 'jsonwebtoken'
 import { jwtHelper } from '../../helpers/jwtHelper'
 import config from '../../config'
-import { Secret } from 'jsonwebtoken'
 
 // requestValidationHandler
 const authHandler =
