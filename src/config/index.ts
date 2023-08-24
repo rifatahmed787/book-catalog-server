@@ -18,4 +18,7 @@ export default {
     refresh_token_secret: process.env.JWT_REFRESH_TOKEN_SECRET_KEY,
     refresh_token_expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRES_IN,
   },
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 }
