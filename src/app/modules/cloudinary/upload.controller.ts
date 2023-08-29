@@ -31,6 +31,7 @@ const uploadFileController = async (req: Request, res: Response) => {
             }
           }
         )
+
         return result.secure_url
       })
     )
