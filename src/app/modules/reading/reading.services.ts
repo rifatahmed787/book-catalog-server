@@ -17,7 +17,7 @@ const ad_to_read = async (reading_data: IReading): Promise<IReading | null> => {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found')
   }
 
-  // book checking checking
+  // book checking
   const isBookExist = await Reading.findById(reading_data.book_id)
 
   if (!isBookExist) {

@@ -28,7 +28,7 @@ const getReadingList = catchAsync(async (req: Request, res: Response) => {
     status_code: httpStatus.OK,
     success: true,
     data: result,
-    message: 'Wish list ',
+    message: 'Reading List',
   })
 })
 
