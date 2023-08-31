@@ -14,5 +14,5 @@ Welcome to the Book Catalog API documentation! This API serves as the backend sy
 ## Base URL
 
 ```
- https://book-catalog-backend.example.com/api/v1
+ https://book-gallery-backend.vercel.app/api/v1/
 ```
