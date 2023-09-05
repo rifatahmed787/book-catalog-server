@@ -43,6 +43,42 @@ const ad_to_wish = async (wish_data: IWish): Promise<IWish | null> => {
   return created_wish
 }
 
+// Remove from wish list
+const remove_from_wish = async (wish_data: IWish): Promise<IWish | null> => {
+  // User checking
+  const isUserExist: IUser | null = await User.isUserExistByID(
+    wish_data?.user_id as Types.ObjectId
+  )
+
+  if (!isUserExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found')
+  }
+
+  // book checking checking
+  const isBookExist = await Book.findById(wish_data.book_id)
+
+  if (!isBookExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Book not found')
+  }
+
+  //  reading list cheking
+  const isInRedingList = await Wish.findOne({
+    book_id: wish_data?.book_id,
+    user_id: wish_data?.user_id,
+  })
+
+  if (!isInRedingList) {
+    throw new ApiError(
+      httpStatus.NOT_FOUND,
+      'Already removed from your wishlist'
+    )
+  }
+
+  const created_wish = await Wish.findByIdAndDelete(wish_data?._id)
+
+  return created_wish
+}
+
 // get_reviews_by_id
 const get_wish_list_by_user_id = async (
   user_id: string
@@ -64,4 +100,5 @@ const get_wish_list_by_user_id = async (
 export const WishServices = {
   ad_to_wish,
   get_wish_list_by_user_id,
+  remove_from_wish,
 }

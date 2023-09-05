@@ -16,4 +16,11 @@ router.post(
 
 router.get('/', authHandler(), WishController.getWishList)
 
+router.delete(
+  '/:id',
+  requestValidationHandler(review_post_zod_schema),
+  authHandler(),
+  WishController.removeFromWish
+)
+
 export const WishRoute = router
