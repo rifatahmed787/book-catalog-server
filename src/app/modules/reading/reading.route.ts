@@ -16,4 +16,11 @@ router.post(
 
 router.get('/', authHandler(), ReadingController.getReadingList)
 
+router.delete(
+  '/:id',
+  requestValidationHandler(review_post_zod_schema),
+  authHandler(),
+  ReadingController.removeFromReadingList
+)
+
 export const ReadingRoute = router
