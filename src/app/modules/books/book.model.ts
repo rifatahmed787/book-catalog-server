@@ -10,6 +10,7 @@ const BookSchema = new Schema<IBook, BookModel>({
   language: { type: String, required: true },
   pages: { type: Number, required: true },
   rating: { type: Number, required: true },
+  price: { type: Number, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
   cover_image: { type: String, required: true },

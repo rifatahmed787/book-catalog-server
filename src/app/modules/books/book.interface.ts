@@ -8,6 +8,7 @@ export type IBook = {
   publisher: string
   language: string
   pages: number
+  price: number
   rating: number
   description: string
   cover_image: string

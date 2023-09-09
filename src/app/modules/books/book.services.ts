@@ -70,6 +70,15 @@ const latest_ten_books = async (): Promise<IBook[] | null> => {
   return latest_books
 }
 
+//best seller
+const bestSeller = async (): Promise<IBook[] | null> => {
+  const fiveStar = await Book.find({ rating: { $gte: 4 } })
+    .sort({ rating: -1 })
+    .limit(9)
+
+  return fiveStar
+}
+
 //  gel_all_genre
 const get__unique_filtering_items =
   async (): Promise<GenericResponse<IBookUniqueFilteringItems> | null> => {
@@ -158,4 +167,5 @@ export const BookServices = {
   delete_book,
   get__unique_filtering_items,
   latest_ten_books,
+  bestSeller,
 }

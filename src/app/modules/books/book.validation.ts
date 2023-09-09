@@ -9,6 +9,7 @@ export const create_book_zod_schema = z.object({
     language: z.string({ required_error: 'Language is required' }),
     pages: z.number({ required_error: 'Pages is required' }),
     rating: z.number({ required_error: 'Ratings is required' }),
+    price: z.number({ required_error: 'Price is Required' }),
     description: z.string({ required_error: 'String is required' }),
     cover_image: z.string({ required_error: 'Cover image is required' }),
     keynotes: z.array(z.string({ required_error: 'Keynotes is required' })),
@@ -27,6 +28,7 @@ export const update_book_zod_schema = z.object({
     language: z.string({ required_error: 'Language is required' }).optional(),
     pages: z.number({ required_error: 'Pages is required' }).optional(),
     rating: z.number({ required_error: 'Ratings is required' }).optional(),
+    price: z.number({ required_error: 'Price is required' }).optional(),
     description: z.string({ required_error: 'String is required' }).optional(),
     cover_image: z
       .string({ required_error: 'Cover image is required' })
