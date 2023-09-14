@@ -26,12 +26,12 @@ const ad_to_wish = async (wish_data: IWish): Promise<IWish | null> => {
   }
 
   //  reading list cheking
-  const isInRedingList = await Wish.findOne({
+  const isInWishList = await Wish.findOne({
     book_id: wish_data?.book_id,
     user_id: wish_data?.user_id,
   })
 
-  if (isInRedingList) {
+  if (isInWishList) {
     throw new ApiError(
       httpStatus.NOT_FOUND,
       'Already in your wish list have this book '
@@ -62,21 +62,21 @@ const remove_from_wish = async (wish_data: IWish): Promise<IWish | null> => {
   }
 
   //  reading list cheking
-  const isInRedingList = await Wish.findOne({
+  const isInWishList = await Wish.findOne({
     book_id: wish_data?.book_id,
     user_id: wish_data?.user_id,
   })
 
-  if (!isInRedingList) {
+  if (!isInWishList) {
     throw new ApiError(
       httpStatus.NOT_FOUND,
       'Already removed from your wishlist'
     )
   }
 
-  const created_wish = await Wish.findByIdAndDelete(wish_data?._id)
+  const remove_wish = await Wish.findByIdAndDelete(wish_data?._id)
 
-  return created_wish
+  return remove_wish
 }
 
 // get_reviews_by_id
