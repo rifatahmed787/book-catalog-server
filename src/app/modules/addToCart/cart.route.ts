@@ -24,4 +24,4 @@ router.delete(
   CartController.removeFromCart
 )
 
-export const WishRoute = router
+export const CartRoute = router

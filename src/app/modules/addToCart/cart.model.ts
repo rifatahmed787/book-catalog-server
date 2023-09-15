@@ -20,4 +20,4 @@ CartSchema.statics.isBookInUserCart = async function (
   return isExist ? true : false
 }
 
-export const Cart = model<ICart, CartModel>('Wish', CartSchema)
+export const Cart = model<ICart, CartModel>('cart', CartSchema)

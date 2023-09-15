@@ -19,19 +19,6 @@ const addToCart = catchAsync(async (req: Request, res: Response) => {
   })
 })
 
-// delete from review
-const removeFromCart = catchAsync(async (req: Request, res: Response) => {
-  const { ...cart_data } = req.body
-  const result = await CartServices.remove_from_cart(cart_data)
-
-  sendResponse<ICart, null>(res, {
-    status_code: httpStatus.OK,
-    success: true,
-    data: result,
-    message: 'Book removed from your cart successfully !',
-  })
-})
-
 // getBookReviews
 const getCart = catchAsync(async (req: Request, res: Response) => {
   const result = await CartServices.get_cart_by_user_id(
@@ -43,6 +30,19 @@ const getCart = catchAsync(async (req: Request, res: Response) => {
     success: true,
     data: result,
     message: 'Cart data retrieve successfully',
+  })
+})
+
+// delete from review
+const removeFromCart = catchAsync(async (req: Request, res: Response) => {
+  const { ...cart_data } = req.body
+  const result = await CartServices.remove_from_cart(cart_data)
+
+  sendResponse<ICart, null>(res, {
+    status_code: httpStatus.OK,
+    success: true,
+    data: result,
+    message: 'Book removed from your cart successfully !',
   })
 })
 

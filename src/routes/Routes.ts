@@ -6,6 +6,7 @@ import { BookRoute } from '../app/modules/books/book.routes'
 import { ReviewRoute } from '../app/modules/review/review.route'
 import { WishRoute } from '../app/modules/wish/wish.route'
 import { ReadingRoute } from '../app/modules/reading/reading.route'
+import { CartRoute } from '../app/modules/addToCart/cart.route'
 
 const router = express.Router()
 
@@ -18,6 +19,7 @@ const all_routes = [
   { path: '/reviews', router: ReviewRoute },
   { path: '/wish', router: WishRoute },
   { path: '/reading', router: ReadingRoute },
+  { path: '/cart', router: CartRoute },
 ]
 
 all_routes.map(item => router.use(item.path, item.router))

@@ -79,7 +79,7 @@ const remove_from_cart = async (cart_data: ICart): Promise<ICart | null> => {
   return remove_cart
 }
 
-// get_reviews_by_id
+// get_cart_by_id
 const get_cart_by_user_id = async (
   user_id: string
 ): Promise<ICart[] | null> => {
