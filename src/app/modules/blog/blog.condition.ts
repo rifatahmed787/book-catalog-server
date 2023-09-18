@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { book_search_condition_keys } from './book.constant'
-import { IBookFilter } from './book.interface'
 
-export const filter_book_conditions = (
-  filers: IBookFilter
+import { blog_search_condition_keys } from './blog.constant'
+import { IBlogFilter } from './blog.interface'
+
+export const filter_blog_conditions = (
+  filers: IBlogFilter
 ): { [key: string]: Array<Record<string, any>> } | undefined => {
   const { searchTerm, ...filter_keys } = filers
 
@@ -11,7 +12,7 @@ export const filter_book_conditions = (
 
   if (searchTerm) {
     conditions.push({
-      $or: book_search_condition_keys.map(item => ({
+      $or: blog_search_condition_keys.map(item => ({
         [item]: {
           $regex: searchTerm,
           $options: 'i',
